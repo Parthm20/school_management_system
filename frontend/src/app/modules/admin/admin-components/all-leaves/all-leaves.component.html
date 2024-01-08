@@ -1,0 +1,26 @@
+<div class="card-container" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+    <mat-card class="student-card" *ngFor="let leave of leaves">
+      <mat-card-header style="background-color:#3f51b5;">
+        <mat-card-title style="color: white;"><strong>{{ leave.name }}</strong></mat-card-title>
+        <mat-card-subtitle style="color: white;">Class: <strong>{{ leave.studentClass }}</strong></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content style="margin-top: 10px;">
+        <p>Subject: <strong>{{ leave.subject }}</strong></p>
+        <p>Body: <strong>{{ leave.body }}</strong></p>
+        <p>Date: <strong>{{ leave.date | date: 'MMM d, y' }}</strong></p>
+        <p>Status: <strong [ngStyle]="{
+            'color': leave.studentLeaveStatus === 'APPROVED' ? 'green' : 
+                     leave.studentLeaveStatus === 'DISAPPROVED' ? 'blue' : 'red'
+          }">{{ leave.studentLeaveStatus }}</strong></p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Action</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="changeLeaveStatus(leave.id, 'Approve')">Approve</button>
+          <button mat-menu-item (click)="changeLeaveStatus(leave.id, 'Reject')">Reject</button>
+        </mat-menu>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

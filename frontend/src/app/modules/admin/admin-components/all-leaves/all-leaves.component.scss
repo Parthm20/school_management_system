@@ -1,0 +1,59 @@
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  .student-card {
+    width: calc(33.33% - 16px);
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .student-card {
+      width: 100%;
+    }
+  
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+  
+    .avatar-container {
+      width: 64px;
+      height: 64px;
+      margin-right: 16px;
+    }
+  
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #003973;
+    }
+  
+    .student-info h2 {
+      /* Style for heading inside student info */
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+  
+    .student-info p {
+      /* Style for paragraphs inside student info */
+      font-size: 14px;
+      color: #777;
+    }
+  
+    .student-details p {
+      /* Style for paragraphs inside student details */
+      margin-bottom: 8px;
+    }
+  
+    mat-card-actions {
+      justify-content: flex-end;
+    }
+  }
+  
